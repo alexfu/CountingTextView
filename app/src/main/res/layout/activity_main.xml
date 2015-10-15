@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true"
+  android:gravity="center"
+  tools:context=".MainActivity">
+
+  <com.alexfu.countingtextview.CountingTextSwitcher
+    android:id="@+id/countingTextSwitcher"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+      style="@style/TextAppearance.AppCompat.Display4"
+      android:id="@+id/first"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:text="---"/>
+
+    <TextView
+      style="@style/TextAppearance.AppCompat.Display4"
+      android:id="@+id/second"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"/>
+
+  </com.alexfu.countingtextview.CountingTextSwitcher>
+
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+      android:id="@+id/increment"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Increment"/>
+
+    <Button
+      android:id="@+id/increment2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Increment to 100"/>
+
+  </LinearLayout>
+
+</LinearLayout>
