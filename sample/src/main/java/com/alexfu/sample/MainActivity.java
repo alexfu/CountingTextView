@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     final CountingTextSwitcher countingTextSwitcher = (CountingTextSwitcher) findViewById(R.id.countingTextSwitcher);
+    countingTextSwitcher.setAnimationDuration(200);
+
     Button increment = (Button) findViewById(R.id.increment);
     Button increment2 = (Button) findViewById(R.id.increment2);
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         countingTextSwitcher.reset();
-        countingTextSwitcher.incrementTo(850);
+        countingTextSwitcher.incrementTo(2);
       }
     });
   }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 public class CountingTextSwitcher extends FrameLayout {
   private int current = -1, ceiling = 0;
   private int counter = 0;
+  private int animationDuration = 1000;
 
   private boolean continuous;
 
@@ -56,6 +57,10 @@ public class CountingTextSwitcher extends FrameLayout {
     current = -1;
   }
 
+  public void setAnimationDuration(int animationDuration) {
+    this.animationDuration = animationDuration;
+  }
+
   private void showNext() {
     final TextView view = (TextView) getChildAt(resolveIndex(counter));
     final TextView offscreen = (TextView) getChildAt(resolveIndex(counter + 1));
@@ -67,10 +72,10 @@ public class CountingTextSwitcher extends FrameLayout {
     set.setInterpolator(new AccelerateInterpolator());
 
     if (continuous) {
-      int duration = calculateFrameDuration(1000);
+      int duration = calculateFrameDuration(animationDuration);
       set.setDuration(duration);
     } else {
-      set.setDuration(300);
+      set.setDuration(animationDuration);
     }
 
     set.start();
@@ -108,7 +113,8 @@ public class CountingTextSwitcher extends FrameLayout {
   }
 
   private int calculateFrameDuration(int maxDuration) {
-    return ceiling/maxDuration;
+    if (ceiling == 0) return maxDuration;
+    return maxDuration / ceiling;
   }
 
   /**
