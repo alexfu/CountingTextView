@@ -41,7 +41,7 @@ public class CountingTextView extends TextView {
 
   private void increment() {
     if (current < ceiling) {
-      current = (current + 1) + getSkipCount();
+      current = (++current) + getSkipCount();
       setText(String.valueOf(current));
       postDelayed(new Runnable() {
         @Override
@@ -54,7 +54,7 @@ public class CountingTextView extends TextView {
 
   private void decrement() {
     if (current > ceiling) {
-      current = (current - 1) - getSkipCount();
+      current = (--current) - getSkipCount();
       setText(String.valueOf(current));
       postDelayed(new Runnable() {
         @Override
