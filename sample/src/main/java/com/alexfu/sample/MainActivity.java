@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alexfu.countingtextview.CountingTextSwitcher;
+import com.alexfu.countingtextview.CountingTextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,24 +15,14 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    final CountingTextSwitcher countingTextSwitcher = (CountingTextSwitcher) findViewById(R.id.countingTextSwitcher);
-    countingTextSwitcher.setAnimationDuration(200);
+    final CountingTextView countingTextSwitcher = (CountingTextView) findViewById(R.id.countingTextSwitcher);
 
     Button increment = (Button) findViewById(R.id.increment);
-    Button increment2 = (Button) findViewById(R.id.increment2);
 
     increment.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        countingTextSwitcher.increment();
-      }
-    });
-
-    increment2.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        countingTextSwitcher.reset();
-        countingTextSwitcher.incrementTo(2);
+        countingTextSwitcher.incrementTo(100);
       }
     });
   }
