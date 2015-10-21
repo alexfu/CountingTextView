@@ -2,6 +2,7 @@ package com.alexfu.countingtextview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -66,6 +67,8 @@ public class CountingTextView extends TextView {
   }
 
   private int getSkipCount() {
-    return Math.abs(ceiling - current)/100;
+    int delta = Math.abs(ceiling - current);
+    int skipCount = delta / 50;
+    return skipCount;
   }
 }
