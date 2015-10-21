@@ -66,6 +66,6 @@ public class CountingTextView extends TextView {
   }
 
   private int getSkipCount() {
-    return (ceiling - current)/100;
+    return Math.abs(ceiling - current)/100;
   }
 }
