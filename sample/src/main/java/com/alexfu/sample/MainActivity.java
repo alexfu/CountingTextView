@@ -18,11 +18,19 @@ public class MainActivity extends AppCompatActivity {
     final CountingTextView countingTextSwitcher = (CountingTextView) findViewById(R.id.countingTextSwitcher);
 
     Button increment = (Button) findViewById(R.id.increment);
+    Button decrement = (Button) findViewById(R.id.decrement);
 
     increment.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         countingTextSwitcher.incrementTo(100);
+      }
+    });
+
+    decrement.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        countingTextSwitcher.decrementTo(50);
       }
     });
   }

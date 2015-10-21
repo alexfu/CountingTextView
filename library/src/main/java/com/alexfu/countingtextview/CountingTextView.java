@@ -34,14 +34,32 @@ public class CountingTextView extends TextView {
     increment();
   }
 
+  public void decrementTo(int value) {
+    ceiling = value;
+    decrement();
+  }
+
   private void increment() {
     if (current < ceiling) {
-      current = (current + 1) + (ceiling - current)/100;
+      current = (current + 1) + ((ceiling - current)/100);
       setText(String.valueOf(current));
       postDelayed(new Runnable() {
         @Override
         public void run() {
           increment();
+        }
+      }, 5);
+    }
+  }
+
+  private void decrement() {
+    if (current > ceiling) {
+      current = (current - 1) - ((ceiling - current)/100);
+      setText(String.valueOf(current));
+      postDelayed(new Runnable() {
+        @Override
+        public void run() {
+          decrement();
         }
       }, 5);
     }
